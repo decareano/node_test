@@ -1,6 +1,4 @@
-directory "tmp"
- 
-file "tmp/hello.tmp" => "tmp" do
+directory I am adding a line of text to my buffero
   sh "echo 'Hello' > 'tmp/hello.tmp'"
 end
  
