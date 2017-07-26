@@ -34,11 +34,20 @@ mySandwich('ham', 'cheese', 'vegetables');
 var fs = require('fs');
 fs.open('./Rakefile', 'r', function (err, fd){
 	if (err) {throw err}
+<<<<<<< HEAD
+	var readBuffer = new Buffer(50),
+		
+		bufferOffset = 0,
+		bufferLength = readBuffer.length,
+
+		filePosition = 10;
+=======
 	var readBuffer = new Buffer(1024),
 		
 		bufferOffset = 0,
 		bufferLength = readBuffer.length,
 		filePosition = 250;
+>>>>>>> d62550c4d481dcdda380d4c17b7eef42a77d5363
 	fs.read(fd,
 			readBuffer,
 			bufferOffset,
@@ -48,12 +57,25 @@ fs.open('./Rakefile', 'r', function (err, fd){
 				if (err) {throw err;}
 				console.log('just read ' + readBytes + ' bytes');
 				if (readBytes > 0) {
+<<<<<<< HEAD
+					console.log(readBuffer.slice(0, readBytes));
+=======
 					console.log('hello ' + readBuffer.slice(0, readBytes));
+>>>>>>> d62550c4d481dcdda380d4c17b7eef42a77d5363
 
 				}
 			});
 });
 
+<<<<<<< HEAD
+var buf = new Buffer(52);
+//console.log(buf.length);
+	for(var i = 0; i < buf.length; i++) {
+		buf[i] = i;
+
+	}
+console.log(buf);
+=======
 
 fs.readFile('./Rakefile', 'utf8', (err, data) => {
   if (err) throw err;
@@ -81,3 +103,4 @@ fs.readFile('./Rakefile', 'utf8', (err, data) => {
 				
 // 			});
 // });
+>>>>>>> d62550c4d481dcdda380d4c17b7eef42a77d5363
