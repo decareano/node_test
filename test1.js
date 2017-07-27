@@ -22,16 +22,22 @@ const assert = require('assert');                                      // 7
 const http = require('http');                                          // 8
 
 const server = http.createServer(function(req, res)  {       // 10
-  res.end('ok');                                                       // 11
+  res.end('ok'); 
+  assert.strictEqual(res.statusCode, 200);                                                       // 11
 });                                                                   // 12
-server.listen(8000, () => {                                               // 13
-  http.get({                                                           // 14
+server.listen(8000, function() {                                               // 13
+  http.get({ 
+
+                                                          // 14
     port: server.address().port,                                       // 15
-    headers: { 'Test': 'Düsseldorf' }                                  // 16
-  }, function(res) {                                        // 17
-    assert.strictEqual(res.statusCode, 200);                           // 18
-    //server.close();                                                    // 19
-  });                                                                 // 20
+    headers: { 'Test': 'Düsseldorf' } ,
+                                    // 16
+  // }, function(res) {                                        // 17
+  //   assert.strictEqual(res.statusCode, 200);                           // 18
+  //   //server.close();  
+  //                                                    // 19
+   }); 
+                                                                   // 20
 });                       
 
 // 'use strict';
