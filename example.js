@@ -1,8 +1,59 @@
-var net = require('net');
+// function myFunc(theObject) {
+// 	theObject.make = 'Toyota';
 
-var server = net.createServer(function(socket) {
-	socket.write('Echo server for marcelo');
-	socket.pipe(socket);
-});
+// }
 
-server.listen(1337, '127.0.0.1');
+// var mycar = { make: 'honda', model: 'Accord', year: 1998};
+
+// //var x , y;
+
+// mycar.make;
+// console.log(mycar.make);
+
+
+// myFunc(mycar);
+
+// console.log(mycar.make);
+
+
+
+// function pinga (number) {
+//   return number * number;
+// };
+
+// pinga(4);
+
+
+// console.log(pinga);
+
+function letTest() {
+let x = 'test';
+if (true) {
+let x = 2; // different variable
+console.log(x); // 2
+}
+console.log(x); // 1
+}
+
+letTest();
+
+
+// function fromArrayLike() {
+  
+  
+//   return b;
+// }
+
+// function myFunc (someValue) {
+//   const x = fromArrayLike();
+//   if (x)
+//     return x;
+// }
+
+// myFunc();
+
+if ('0') {
+	console.log('no way')
+}
+
+
