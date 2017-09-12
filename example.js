@@ -38,22 +38,78 @@ console.log(x); // 1
 letTest();
 
 
-// function fromArrayLike() {
-  
-  
-//   return b;
-// }
+class MyString extends String {
+  constructor (mahString) {
+    super(mahString);
+    this.myValue = mahString;
+  }
+}
 
-// function myFunc (someValue) {
-//   const x = fromArrayLike();
-//   if (x)
-//     return x;
-// }
+myString = new MyString('Old Yeller');
+myString.myValue;
+console.log(myString.myValue);
 
-// myFunc();
-
-if ('0') {
+if (0) {
 	console.log('no way')
 }
+
+function counter() {
+  	for (var count = 1; ; count++) {  // infinite loop
+    	console.log(count + 'A'); // until 5
+      if (count === 5) {          
+        return;
+      }
+      console.log(count + 'B');  // until 4
+    }
+  console.log(count + 'C');  // never appears
+}
+
+counter();
+
+function magic(x) {
+	return function calc(x) {return x * 5; };
+} 
+
+var answer = magic();
+answer(12); //works in browser console....but not here...
+//anwconsole.log(answer);
+
+function init() {
+  var name = 'Mozilla'; // name is a local variable created by init
+  function displayName() { // displayName() is the inner function, a closure
+    console.log(name); // use variable declared in the parent function    
+  }
+  displayName();    
+}
+init();
+
+let p = {}
+p = new Proxy(p, {
+      get (that, key) {
+        if (Reflect.has(that, key)) {
+          return that[key]
+        }
+        return function () {
+          return key
+        }
+      }
+    })
+
+var highValue = 200;
+var constantVal = 2;
+var myObj = { 
+	highValue: 20, 
+	constantVal: 5, 
+	calculateIt: function () { 
+		setTimeout (function () { 
+			console.log(this.constantVal * this.highValue);
+		
+    }, 2000);
+    }
+}
+myObj.calculateIt();
+
+
+
 
 
