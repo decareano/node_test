@@ -107,4 +107,13 @@ function letTest(ifBool) {
 }
 
 letTest();
+var test = 5;
+function from (value1, value2, value3) {
+	if (typeof value1 === 'number')
+		return test;
+}
+
+//from(5);
+console.log(test);
+
 
