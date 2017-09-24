@@ -1,30 +1,65 @@
-const {
-  isAnyArrayBuffer,
-  isUint8Array
-} = process.binding('util');
+function testPromise() {
+    return new Promise((resolve, reject) => {
+        reject(10);
+    });
+}
+
+function newNode() {
+    console.log(1);
+
+    called = async () => {
+        try {
+            console.log(await testPromise())
+        } catch (err) {
+            console.log('err' + err);
+        }
+    }
+    console.log(2);
+    called();
+}
 
 
-let newBuf;
-{
+//const doSomething = function() {};
 
-                                      if (isUint8Array(obj)) {
-                                        const b = allocate(obj.length);
-                                        if (b.length === 0)
-                                        return b;
 
-                                        _copy(obj, b, 0, 0, obj.length);
-                                        return b;
-                                      }
+function successCallback(result) {
+  //console.log("It succeeded with " + result);
+}
 
-                                      if (obj.length !== undefined || isAnyArrayBuffer(obj.buffer)) {
-                                        if (typeof obj.length !== 'number' || obj.length !== obj.length) {
+function failureCallback(error) {
+  //console.log("It failed with " + error);
+}
 
-                                          return new FastBuffer();
-                                        }
-                                          return fromArrayLike(obj);
-                                        }
-                                     
-                                      if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
-                                          return fromArrayLike(obj.data);
-                                      }
+var goodBoy = true;
+
+const promise = new Promise((resolve, reject) =>  {
+        
+        if (goodBoy) {
+            var phone = {
+                brand: 'iphone10',
+                color: 'gray'
+            };
+            resolve(phone);
+        } else {
+            var reason = new Error ('No iphone for you');
+            reject(reason);
+        }
+        //resolve(successCallback);
+        //reject(failureCallback);
+
+});
+
+promise.then(successCallback, failureCallback);
+
+var testingPromise = function () {
+    promise
+    .then(function (resolve) {
+        console.log(resolve);
+    })
+    .catch(function (reject) {
+        console.log(reject.message);
+    });
+
 };
+
+testingPromise();
