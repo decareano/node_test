@@ -1,8 +1,11 @@
-function start() {
-	var name = 'mozilla';
-	function displayName() {
-		console.log(name);
-	}
-	
+function celebrityName (firstName) {
+	var nameIntro = " This celebrity is ";
+		function lastName (theLastName) {
+			return nameIntro + firstName + " " + theLastName;
+		}
+		return lastName;
 }
-displayName();//start();
+
+var testName = celebrityName("Michael")
+console.log(testName("Jackson"));
+

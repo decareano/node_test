@@ -1,34 +1,10 @@
-function testPromise() {
-    return new Promise((resolve, reject) => {
-        reject(10);
-    });
-}
+// function successCallback(result) {
+//   console.log("It succeeded with " + result);
+// }
 
-function newNode() {
-    console.log(1);
-
-    called = async () => {
-        try {
-            console.log(await testPromise())
-        } catch (err) {
-            console.log('err' + err);
-        }
-    }
-    console.log(2);
-    called();
-}
-
-
-//const doSomething = function() {};
-
-
-function successCallback(result) {
-  //console.log("It succeeded with " + result);
-}
-
-function failureCallback(error) {
-  //console.log("It failed with " + error);
-}
+// function failureCallback(error) {
+//   console.log("It failed with " + error);
+// }
 
 var goodBoy = true;
 
@@ -49,17 +25,31 @@ const promise = new Promise((resolve, reject) =>  {
 
 });
 
-promise.then(successCallback, failureCallback);
+//promise.then(successCallback, failureCallback);
+//consuming the promise(s)
 
 var testingPromise = function () {
+    console.log("before checking with mom");
     promise
-    .then(function (resolve) {
+    .then(showPhone)                    //async call here
+    .then(function (resolve) {          //async call here
         console.log(resolve);
     })
     .catch(function (reject) {
         console.log(reject.message);
     });
-
+    console.log("after checking with mom");
 };
+
+var showPhone = function (phone) {
+    return new Promise(
+        function (resolve, reject) {
+            var message = "This is what my mom bought me, " +
+            "a " + phone.color + ' ' + phone.brand + ' phone';
+            resolve(message);
+        }
+    );
+};
+
 
 testingPromise();

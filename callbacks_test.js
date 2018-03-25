@@ -28,12 +28,12 @@ finder([1, 2], function (records) {
 
 function mySandwich(param1, param2, callback) {
     console.log('Started eating my sandwich.\n\nIt has: ' + param1 + ', ' + param2);
-    callback();
+    if (callback) {
+        callback();
+    }
 }
 
-mySandwich('ham', 'cheese', function() {
-    console.log('Finished eating my sandwich.');
-});
+mySandwich('ham', 'cheese');
 
 
 function foo() {

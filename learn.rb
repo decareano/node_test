@@ -1,8 +1,8 @@
 package "apache" do
-	package_name "apache2"
+	package_name "httpd"
 end
 
-service 'apache2' do
+service 'httpd' do
 	action [:enable, :start]
 
 end
