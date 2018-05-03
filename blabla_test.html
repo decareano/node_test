@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Loops</h2>
+
+<p id="demo"></p>
+
+<script>
+var a = [1,2,3,4];
+var text = "";
+var blabla = [];
+var i;
+for (i = 0; i < a.length; i++) {
+
+
+	text += a[i] + "<br>";
+    
+    if (!blabla[a[i]]) {
+    //alert(blabla);
+    alert(typeof blabla[i]);
+    
+    	blabla[a[i]] = i;  //put 1,2,3,4 in blabla
+        
+        //alert(!blabla[a[i]]);
+    
+    }
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>
