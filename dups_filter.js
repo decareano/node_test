@@ -6,12 +6,15 @@
 
 var models = [10, 12, 4, 2, 5, 16, 17, 18, 201, 2, 10, 17];
 
+
 var uniqueProducts = models.filter(function(elem, i, array) {
+        var test = [];
         return models.indexOf(elem) === i;
     }
 );
 
 console.log(uniqueProducts);
+console.log(models);
 
 
 
